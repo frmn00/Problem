@@ -6,13 +6,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="LView" HorizontalAlignment="Left" Height="189" Margin="10,10,0,0" VerticalAlignment="Top" Width="497">
+        <ListView x:Name="LView" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="497">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Country}"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Decription}"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Cost}"/>
+                    <GridViewColumn Width="150" Header="Название" DisplayMemberBinding="{Binding Path=Name}"/>
+                    <GridViewColumn Width="150" Header="Производитель" DisplayMemberBinding="{Binding Path=Country}"/>
+                    <GridViewColumn Width="100" Header="Описание" DisplayMemberBinding="{Binding Path=Decription}"/>
+                    <GridViewColumn Width="50" Header="Цена" DisplayMemberBinding="{Binding Path=Cost}"/>
                 </GridView>
             </ListView.View>
         </ListView>
