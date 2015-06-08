@@ -91,6 +91,7 @@ namespace problem
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return;
             }
         }
         public MainWindow()
@@ -106,11 +107,54 @@ namespace problem
                 return;
             }
             List<Goods> products = new List<Goods>();
-            using (var db = new SQLite.SQLiteConnection("database.db"))
+            try
             {
-                products = db.Table<Goods>().ToList<Goods>();
+                using (var db = new SQLite.SQLiteConnection("database.db"))
+                {
+                    products = db.Table<Goods>().ToList<Goods>();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
             LView.ItemsSource = products;
+            LView.SelectedIndex = 1;
         }
+        private int len = 0, cnt = 0;
+
+        private void OnManipulationEnd(object sender, ManipulationCompletedEventArgs e)
+        {
+            this.Title = "END";
+        }
+
+        private void OnManipulationStarted(object sender, ManipulationStartedEventArgs e)
+        {
+            this.Title = "STARTED";
+        }
+
+        private void OnManipulationStarting(object sender, ManipulationStartingEventArgs e)
+        {
+            e.ManipulationContainer = LView;
+            e.Mode = ManipulationModes.Translate;
+            this.Title = "STARTING";
+        }
+
+        private void OnManipulationDelta(object sender, ManipulationDeltaEventArgs e)
+        {
+            TEXT.Text += e.DeltaManipulation.Translation.Y.ToString() + "\n";
+            LView.ScrollIntoView(LView.Items[LView.SelectedIndex - (int)e.DeltaManipulation.Translation.Y]);
+            LView.SelectedIndex -= (int)e.DeltaManipulation.Translation.Y;
+        }
+
+        private void OnManipulationInertia(object sender, ManipulationInertiaStartingEventArgs e)
+        {
+            //MessageBox.Show(e.InitialVelocities.LinearVelocity.Y.ToString());
+            e.TranslationBehavior.InitialVelocity = e.InitialVelocities.LinearVelocity;
+            e.TranslationBehavior.DesiredDeceleration = 10 * 156.0 / (1000.0 * 1000.0);
+        }
+
+
     }
 }

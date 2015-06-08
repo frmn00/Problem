@@ -1,12 +1,12 @@
 ﻿<Window x:Class="problem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+        Title="MainWindow" Height="657" Width="525" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="LView" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="497">
+        <ListView x:Name="LView" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="497" ManipulationInertiaStarting="OnManipulationInertia" ManipulationDelta="OnManipulationDelta" IsManipulationEnabled="True" ManipulationStarted="OnManipulationStarted" ManipulationStarting="OnManipulationStarting" ManipulationCompleted="OnManipulationEnd" ScrollViewer.PanningMode="None">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="150" Header="Название" DisplayMemberBinding="{Binding Path=Name}"/>
@@ -16,6 +16,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBox Name="TEXT" HorizontalAlignment="Left" Height="163" Margin="97,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"/>
 
     </Grid>
 </Window>
