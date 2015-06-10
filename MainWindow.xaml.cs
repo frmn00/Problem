@@ -65,7 +65,7 @@ namespace problem
 {
     public partial class MainWindow : Window
     {
-
+        
         public void FillDb()
         {
             Random rnd = new Random(42);
@@ -101,6 +101,7 @@ namespace problem
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
             if (!File.Exists("database.db"))
             {
                 MessageBox.Show("База данных не найдена!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -124,33 +125,35 @@ namespace problem
         }
         private int len = 0, cnt = 0;
 
+        
         private void OnManipulationEnd(object sender, ManipulationCompletedEventArgs e)
         {
-            this.Title = "END";
+            
         }
 
         private void OnManipulationStarted(object sender, ManipulationStartedEventArgs e)
         {
-            this.Title = "STARTED";
+            
         }
 
         private void OnManipulationStarting(object sender, ManipulationStartingEventArgs e)
         {
-            e.ManipulationContainer = LView;
-            e.Mode = ManipulationModes.Translate;
-            this.Title = "STARTING";
+            
         }
 
         private void OnManipulationDelta(object sender, ManipulationDeltaEventArgs e)
         {
-            TEXT.Text += e.DeltaManipulation.Translation.Y.ToString() + "\n";
+            if (LView.SelectedIndex - e.DeltaManipulation.Translation.Y <= 0 || LView.SelectedIndex - e.DeltaManipulation.Translation.Y >= 100000)
+            {
+                e.ReportBoundaryFeedback(e.DeltaManipulation);
+                return;
+            }
             LView.ScrollIntoView(LView.Items[LView.SelectedIndex - (int)e.DeltaManipulation.Translation.Y]);
-            LView.SelectedIndex -= (int)e.DeltaManipulation.Translation.Y;
+            LView.SelectedIndex -= (int)-(int)e.DeltaManipulation.Translation.Y;
         }
 
         private void OnManipulationInertia(object sender, ManipulationInertiaStartingEventArgs e)
         {
-            //MessageBox.Show(e.InitialVelocities.LinearVelocity.Y.ToString());
             e.TranslationBehavior.InitialVelocity = e.InitialVelocities.LinearVelocity;
             e.TranslationBehavior.DesiredDeceleration = 10 * 156.0 / (1000.0 * 1000.0);
         }

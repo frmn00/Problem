@@ -19,3 +19,19 @@ C:\Users\Freeman\Documents\Visual Studio 2013\Projects\problem\problem\bin\Debug
 C:\Users\Freeman\Documents\Visual Studio 2013\Projects\problem\problem\bin\Debug\EntityFramework.xml
 C:\Users\Freeman\Documents\Visual Studio 2013\Projects\problem\problem\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Freeman\Documents\Visual Studio 2013\Projects\problem\problem\bin\Debug\System.Data.SQLite.xml
+C:\Users\Sony\Documents\GitHub\Problem\bin\Debug\problem.exe.config
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem.exe
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem.pdb
+C:\Users\Sony\Documents\GitHub\Problem\bin\Debug\problem.exe
+C:\Users\Sony\Documents\GitHub\Problem\bin\Debug\problem.pdb
+C:\Users\Sony\Documents\GitHub\Problem\bin\Debug\EntityFramework.xml
+C:\Users\Sony\Documents\GitHub\Problem\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sony\Documents\GitHub\Problem\bin\Debug\System.Data.SQLite.xml
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem.csprojResolveAssemblyReference.cache
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\MainWindow.baml
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\MainWindow.g.cs
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\App.g.cs
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem_MarkupCompile.cache
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem.g.resources
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem.Properties.Resources.resources
+C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem.csproj.GenerateResource.Cache
