@@ -6,7 +6,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="LView" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="497" ManipulationInertiaStarting="OnManipulationInertia" ManipulationDelta="OnManipulationDelta" IsManipulationEnabled="True" ManipulationStarted="OnManipulationStarted" ManipulationStarting="OnManipulationStarting" ManipulationCompleted="OnManipulationEnd" ScrollViewer.PanningMode="None">
+        <ListView x:Name="LView" HorizontalAlignment="Left" Margin="10,10,0,0" Width="497" 
+                  ManipulationInertiaStarting="OnManipulationInertia" ManipulationDelta="OnManipulationDelta" IsManipulationEnabled="True" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
+                  ManipulationStarted="OnManipulationStarted" ManipulationStarting="OnManipulationStarting" ManipulationCompleted="OnManipulationEnd" ScrollViewer.PanningMode="None" Height="300" VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="150" Header="Название" DisplayMemberBinding="{Binding Path=Name}"/>

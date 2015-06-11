@@ -149,13 +149,13 @@ namespace problem
                 return;
             }
             LView.ScrollIntoView(LView.Items[LView.SelectedIndex - (int)e.DeltaManipulation.Translation.Y]);
-            LView.SelectedIndex -= (int)-(int)e.DeltaManipulation.Translation.Y;
+            LView.SelectedIndex -= (int)e.DeltaManipulation.Translation.Y;
         }
 
         private void OnManipulationInertia(object sender, ManipulationInertiaStartingEventArgs e)
         {
             e.TranslationBehavior.InitialVelocity = e.InitialVelocities.LinearVelocity;
-            e.TranslationBehavior.DesiredDeceleration = 10 * 156.0 / (1000.0 * 1000.0);
+            e.TranslationBehavior.DesiredDeceleration = 2.0 / 1000.0;
         }
 
 
