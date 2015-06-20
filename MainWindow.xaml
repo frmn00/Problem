@@ -1,23 +1,48 @@
 ﻿<Window x:Class="problem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:MyWinCollection"
         Title="Price" Height="349.537" Width="525" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <Window.Resources>
+
+        <DataTemplate x:Key="MyItemTemplate">
+            <Border Background="White" BorderBrush="LightGray" BorderThickness="1" Margin="2" Width="230">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" FontWeight="Bold" Text="{Binding Path=Name}"/>
+                    <TextBlock Grid.Row="1"  Text="{Binding Path=Country, StringFormat={}Производитель: {0}}"/>
+                    <TextBlock Grid.Row="2"  Text="{Binding Path=Decription}"/>
+                    <TextBlock Grid.Row="3"  Text="{Binding Path=Cost, StringFormat={}Цена: {0}}"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        
+        
+
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <ListView x:Name="LView" HorizontalAlignment="Left" Margin="10,10,0,0" Width="497" 
                   ManipulationInertiaStarting="OnManipulationInertia" ManipulationDelta="OnManipulationDelta" IsManipulationEnabled="True" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
-                  ManipulationStarted="OnManipulationStarted" ManipulationStarting="OnManipulationStarting" ManipulationCompleted="OnManipulationEnd" ScrollViewer.PanningMode="None" Height="300" VerticalAlignment="Top">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="150" Header="Название" DisplayMemberBinding="{Binding Path=Name}"/>
-                    <GridViewColumn Width="150" Header="Производитель" DisplayMemberBinding="{Binding Path=Country}"/>
-                    <GridViewColumn Width="100" Header="Описание" DisplayMemberBinding="{Binding Path=Decription}"/>
-                    <GridViewColumn Width="50" Header="Цена" DisplayMemberBinding="{Binding Path=Cost}"/>
-                </GridView>
-            </ListView.View>
+                  ManipulationStarted="OnManipulationStarted" ManipulationStarting="OnManipulationStarting" ManipulationCompleted="OnManipulationEnd" ScrollViewer.PanningMode="None" Height="300" VerticalAlignment="Top"
+                  ItemTemplate="{StaticResource MyItemTemplate}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <my:VirtualizingWrapPanel Background="LightGray"></my:VirtualizingWrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            
         </ListView>
 
     </Grid>
 </Window>
+

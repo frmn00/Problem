@@ -35,3 +35,9 @@ C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem_MarkupCompile.cache
 C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem.g.resources
 C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem.Properties.Resources.resources
 C:\Users\Sony\Documents\GitHub\Problem\obj\Debug\problem.csproj.GenerateResource.Cache
+C:\Users\Freeman\Documents\Visual Studio 2013\Projects\problem\problem\bin\Debug\MahApps.Metro.dll
+C:\Users\Freeman\Documents\Visual Studio 2013\Projects\problem\problem\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Freeman\Documents\Visual Studio 2013\Projects\problem\problem\bin\Debug\MahApps.Metro.xml
+C:\Users\Freeman\documents\visual studio 2013\Projects\problem\problem\bin\Debug\Telerik.Windows.Controls.dll
+C:\Users\Freeman\documents\visual studio 2013\Projects\problem\problem\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Freeman\documents\visual studio 2013\Projects\problem\problem\obj\Debug\problem_MarkupCompile.lref

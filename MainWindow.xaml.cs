@@ -16,7 +16,7 @@ using System.Data.SQLite;
 using System.Data.SQLite.Linq;
 using System.IO;
 using SQLite;
-
+using MyWinCollection;
 
 public class Goods
 {
@@ -101,6 +101,7 @@ namespace problem
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            FillDb();
 
             if (!File.Exists("database.db"))
             {
@@ -125,7 +126,6 @@ namespace problem
         }
         private int len = 0, cnt = 0;
 
-        
         private void OnManipulationEnd(object sender, ManipulationCompletedEventArgs e)
         {
             
@@ -148,7 +148,9 @@ namespace problem
                 e.ReportBoundaryFeedback(e.DeltaManipulation);
                 return;
             }
-            LView.ScrollIntoView(LView.Items[LView.SelectedIndex - (int)e.DeltaManipulation.Translation.Y]);
+            Decorator border = VisualTreeHelper.GetChild(LView, 0) as Decorator;
+            ScrollViewer sc = border.Child as ScrollViewer;
+            sc.ScrollToVerticalOffset(LView.SelectedIndex - (int)e.DeltaManipulation.Translation.Y);
             LView.SelectedIndex -= (int)e.DeltaManipulation.Translation.Y;
         }
 
@@ -157,7 +159,5 @@ namespace problem
             e.TranslationBehavior.InitialVelocity = e.InitialVelocities.LinearVelocity;
             e.TranslationBehavior.DesiredDeceleration = 2.0 / 1000.0;
         }
-
-
     }
 }
